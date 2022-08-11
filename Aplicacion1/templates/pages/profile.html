@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <div class="container">
+        <h3>This user is staff(admin): {{user.is_staff}}</h3>
+        <h3>Name of the user: {{user.name}}</h3>
+        <!--<h2>{{user.username}}</h2> -->
+        <h3>The email of user is: {{user.email}}</h3>
+    </div>
+{% endblock %}

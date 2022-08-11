@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{%block titulo%} Lista de libros {% endblock %}}
+
+{%block contenido%}
+<div class="card">
+    <div class="card-header">
+        Listar libros
+        <a name"" id="" class="btn btn-primary btn-lg" href="{% url "tocreate" %}" role="button">integrar nuevo libro</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Libros</h4>
+         <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genres</th>
+                    <th>Editorial</th>
+                    <th>ilustration</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in libros %} 
+                <tr>
+                    <td>{{ libro.id }}</td>
+                    <td>{{ libro.title }}</td>
+                    <td>{{ libro.author }}</td>
+                    <td>{{ libro.genres }}</td>
+                    <td>{{ libro.editorial }}</td>
+                    <td>
+                        <img src="{{ libro.ilustration.url}}" height="100"/>
+                    </td>
+                    <td>{{ libro.description }}</td> 
+                    <td>  
+                        <a name="" id="" class="btn btn-info" href="{% url "editar" libro.id %}" role="button">Editar</a>
+                        <a name="" id="" class="btn btn-danger" href="{% url "delete" libro.id %}" role="button">Borrar</a> <!--pasamos parametro de libro id-->
+                    </td>
+                        </tr>
+                        {% endfor %}
+            
+            </tbody>
+         </table>
+         
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
+
+{% endblock %}

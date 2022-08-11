@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{%block titulo%} Lista de donaciones {% endblock %}}
+
+{%block contenido%}
+<div class="card">
+    <div class="card-header">
+        Listar donaciones
+        <a name"" id="" class="btn btn-primary btn-lg" href="{% url "create" %}" role="button">integrar nueva donacion</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Donaciones</h4>
+         <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombrematerial</th>
+                    <th>categoria</th>
+                    <th>stock</th>
+                    <th>color</th>
+                    <th>ilustration</th>
+                    <th>tipoderopa</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prenda in prendas %} 
+                <tr>
+                    <td>{{ prenda.id }}</td>
+                    <td>{{ prenda.name_materials }}</td>
+                    <td>{{ prenda.category }}</td>
+                    <td>{{ prenda.stock }}</td>
+                    <td>{{ prenda.color }}</td>
+                    <td>
+                        <img src="{{ prenda.ilustration.url}}" height="100"/>
+                    </td>
+                    <td>{{ prenda.typeclothings }}</td> 
+                    <td>  
+                        <a name="" id="" class="btn btn-info" href="{% url "editarpe" prenda.id %}" role="button">Editar</a>
+                        <a name="" id="" class="btn btn-danger" href="{% url "deletepe" prenda.id %}" role="button">Borrar</a> <!--pasamos parametro de libro id-->
+                    </td>
+                        </tr>
+                        {% endfor %}
+            
+            </tbody>
+         </table>
+         
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
+
+{% endblock %}

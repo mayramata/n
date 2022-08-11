@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{%block titulo%} reciclar {% endblock %}
+
+{%block contenido%}
+
+
+<h3>¿por que reciclar nuestra ropa?:</h3><br>
+ <center> <h5>la ropa que llevamos puesta está elaborada a base de cuatro materiales: algodón, lana, seda o fibras sintéticas. Los tres primeros se obtienen de forma natural, y el cuarto es un derivado del petróleo. Independientemente del origen del material, la fabricación de ropa es un proceso que supone prácticas que pueden perjudicar el medio ambiente, por ejemplo, la producción de tintes, los recubrimientos, el blanqueo y la mercerización.
+    En el caso de las fibras sintéticas como el nylon, el perlé o la lycra, su fabricación tiene un efecto en la atmósfera, pues son el resultado de procesos químicos complejos derivados de la extracción y el tratamiento del petróleo. Además, fabricarlas en exceso contribuye al agotamiento de este recurso.
+    De ahí la importancia de reutilizar la ropa que ya no usemos o que haya dejado de ser útil en nuestro armario. Hacerlo supone un menor impacto medioambiental, pues además de evitar procesos industriales complejos, también contribuye al ahorro de agua y energía y a una menor producción de residuos.</h5></center>
+ <h4> Puedes Reciclar Tu Ropa Antigua Aqui.</h4><a class="btn btn-primary btn-lg" href="{%url "create" %}" role="button">Crear Peticion de reciclaje</a>
+ {% endblock %}

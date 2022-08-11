@@ -1,0 +1,86 @@
+<!--bs5-$-->
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{%block titulo%}{% endblock %}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <!--Css Style -->
+     <link rel="stylesheet" href="{% static 'users/css/main.css' %}" type="text/css">
+
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+     <!--Font Link-->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+ 
+  </head>
+  <body id="bg" style="background-image: url({% static 'users/images/bg.png' %});">
+  {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'inicio' %}"><img src="{% static 'images/in-logo-1.svg' %}" alt="" ></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="nav navbar-nav">
+              <p> _</p>
+              <h5><a href="{%url "inicio" %}">Kitten<br><b>Wooly</b></a></h5>
+              <p> _________</p>
+              
+              <a class="nav-item nav-link active" href="{%url "nosotros" %}">Nosotros</a>
+              <a class="nav-item nav-link active" href="{%url "tocreate" %}">Crear Libro</a>
+              <a class="nav-item nav-link active" href="{%url "shoppingcart" %}">Tienda</a>
+              <a class="nav-item nav-link active" href="{%url "books" %}">Mostrar Libros</a>
+              <a class="nav-item nav-link active" href="{%url "sewingcourse" %}">Cursos</a>
+              <a class="nav-item nav-link active" href="{%url "employees" %}">Empleados</a>
+              <a class="nav-item nav-link active" href="{%url "buyers" %}">Compradores</a>
+              <a class="nav-item nav-link active" href="{%url "recicle" %}">Recicle</a>
+              <a class="nav-item nav-link active" href="{%url "create" %}">crear donaciones</a>
+              <a class="nav-item nav-link active" href="{%url "crudrecicle" %}">Mostrar donaciones</a>
+              <a class="nav-item nav-link active" href="{%url "donacioneslist" %}">disponibles</a>
+              <a class="nav-item nav-link active" href=""></a>
+             
+            </div> 
+            <form class="d-flex" id="authstyle">
+              {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Profile </a>
+                <a href="{% url 'logout' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Logout </a>
+              {% else %}
+                <a href="{% url 'register' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Create Account </a>
+                <a href="{% url 'loginuser' %}" class="btn" style="color: white; background-color: #fd5e14; margin-left: 10px; "type="submit" id="header-links">Log In</a>
+              {% endif %}
+              </form>
+          </div>
+        </div>
+    </nav>
+ 
+    <!--muestra la tabla y otros dontenidos que pertenezcan ala clase -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            {% if messages %}
+             {% for message in messages %}
+              <div class="alert alert-{{message.tags}}">{{message}}</div>
+             {% endfor %}
+            {% endif %}
+            <br><br>
+           {%block contenido%}{% endblock %}
+          </div>
+        </div>
+        {% block content %}
+        {% endblock content %}
+      </div>
+            
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  </body>
+</html>
